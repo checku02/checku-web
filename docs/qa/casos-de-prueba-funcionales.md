@@ -51,3 +51,28 @@ Registrar para cada caso: fecha, entorno, datos de prueba, resultado real, estad
 
 ## Criterio de aceptación
 Los casos deben ejecutarse en el entorno de pruebas. No registrar como aprobadas pruebas que no se hayan ejecutado.
+
+# HU3 — Asignación de docentes a grupos
+
+## Objetivo
+Verificar el funcionamiento de la asignación de docentes a grupos en la plataforma web de CheckU.
+
+## Casos de prueba
+
+| ID | Escenario | Precondiciones | Pasos | Resultado esperado | Prioridad |
+|---|---|---|---|---|---|
+| WEB-HU3-001 | Asignación de docente a un grupo | Existe un docente y un grupo registrados. El usuario tiene permisos para realizar asignaciones. | 1. Abrir el módulo de asignaciones. 2. Seleccionar un grupo. 3. Seleccionar un docente. 4. Confirmar la asignación. | La asignación se registra y se muestra asociada al grupo correspondiente. | Alta |
+| WEB-HU3-002 | Asignación sin seleccionar docente | Existe un grupo registrado y el formulario de asignación está disponible. | 1. Abrir el formulario. 2. Seleccionar un grupo. 3. No seleccionar un docente. 4. Intentar guardar. | El sistema impide completar la asignación y solicita seleccionar un docente. | Alta |
+| WEB-HU3-003 | Asignación sin seleccionar grupo | Existe un docente registrado y el formulario de asignación está disponible. | 1. Abrir el formulario. 2. Seleccionar un docente. 3. No seleccionar un grupo. 4. Intentar guardar. | El sistema impide completar la asignación y solicita seleccionar un grupo. | Alta |
+| WEB-HU3-004 | Consulta de una asignación existente | Existe una asignación registrada. | 1. Abrir el módulo de asignaciones. 2. Buscar el grupo o docente correspondiente. | El sistema muestra la relación correcta entre el docente y el grupo. | Alta |
+| WEB-HU3-005 | Cambio de docente asignado | Existe un grupo con un docente asignado y la funcionalidad permite cambiar la asignación. | 1. Abrir la asignación existente. 2. Seleccionar otro docente válido. 3. Guardar los cambios. | Se actualiza la asignación y se muestra el docente correspondiente. | Alta |
+| WEB-HU3-006 | Validación de docente inexistente o no disponible | El entorno permite preparar datos de prueba para validar docentes no disponibles o inválidos. | 1. Abrir el formulario de asignación. 2. Intentar seleccionar o enviar un docente inválido o no disponible. | El sistema rechaza la asignación inválida y muestra un mensaje comprensible. | Media |
+| WEB-HU3-007 | Verificación de persistencia de la asignación | Se registró una asignación correctamente. | 1. Guardar la asignación. 2. Salir del módulo. 3. Volver a consultar el grupo. | La asignación permanece registrada y se muestra correctamente. | Alta |
+
+## Registro de ejecución
+Estado inicial: Pendiente de ejecución.
+
+Registrar para cada caso: fecha, entorno, datos de prueba, resultado real, estado (Aprobado/Reprobado/Bloqueado) y evidencia.
+
+## Criterio de aceptación
+Los casos deben ejecutarse en el entorno de pruebas. No registrar como aprobadas pruebas que no se hayan ejecutado.
