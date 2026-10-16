@@ -55,3 +55,33 @@ Verificar que el flujo de autenticación, manejo de sesión JWT y protección de
 ## 4. Conclusión HU1
 
 Las pruebas de integración de sesión y rutas protegidas se consideran **cubiertas** para el alcance de HU1.
+
+---
+
+# Pruebas de integración Web ↔ API – HU2 y HU3 (CORS y códigos de error)
+
+## HU2 – Grupos y Alumnos
+
+| ID      | Caso                                      | Resultado esperado                          | Estado |
+|---------|-------------------------------------------|---------------------------------------------|--------|
+| INT-W20 | Listar grupos con token de profesor       | 200 + lista de grupos                       |        |
+| INT-W21 | Crear grupo con datos válidos             | 201                                         |        |
+| INT-W22 | Crear grupo duplicado                     | 409                                         |        |
+| INT-W23 | Acceso a grupos sin token                 | 401                                         |        |
+| INT-W24 | Alumno intenta crear grupo                | 403                                         |        |
+
+## HU3 – Docentes y asignaciones
+
+| ID      | Caso                                      | Resultado esperado                          | Estado |
+|---------|-------------------------------------------|---------------------------------------------|--------|
+| INT-W30 | Listar docentes (rol admin)               | 200                                         |        |
+| INT-W31 | Crear docente                             | 201                                         |        |
+| INT-W32 | Crear docente duplicado                   | 409                                         |        |
+| INT-W33 | Profesor intenta acceder a /admin         | 403                                         |        |
+| INT-W34 | Asignar docente-materia-grupo             | 201                                         |        |
+
+## CORS y errores
+
+- Se verificó que el header `Access-Control-Allow-Origin` permite el origen del frontend.
+- Los códigos 400, 401, 403, 404 y 409 se manejan correctamente en el cliente.
+- Los mensajes de error del backend se muestran de forma amigable al usuario.
